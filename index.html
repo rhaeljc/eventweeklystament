@@ -1,0 +1,32 @@
+<body onload="loadInfo()">
+
+    <head>
+        <style>
+
+        </style>
+    </head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="./node_modules/mustache/mustache.min.js"></script>
+    <script src="./scripts/html2pdf.bundle.min.js"></script>
+    <script src="./scripts/tools.js"></script>
+
+    <script>
+        let eventWeeklyStament = '';
+        async function loadInfo() {
+
+            eventWeeklyStament = await showInfo('./templates/eventWeeklyStament.html', 'https://4ak5dp12gh.execute-api.us-east-1.amazonaws.com/dev/event/co.CcfzgluQSX?event_year=2020&event_month=7')
+            $("#info").html(eventWeeklyStament);
+        }
+        async function saveAs() {
+            saveAsPDF(eventWeeklyStament);
+        }
+
+
+
+    </script>
+    <div id="info"></div>
+
+    </div>
+    <button onclick="saveAs()">Test Print</button>
+    <p><strong>&nbsp;</strong></p>
+</body>

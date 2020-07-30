@@ -1,0 +1,171 @@
+<style>
+    .button {
+        background-color: #3c4252;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        margin-top: 15px;
+        cursor: pointer;
+        float: right;
+    }
+
+    h1 {
+        background-color: #3c4252;
+        color: white;
+        text-align: center;
+        text-transform: capitalize;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    #results {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #results td,
+    #results th {
+            border: 1px solid #ddd;
+            padding: 6px;
+            font-size: 13px;
+    }
+
+    #noborder tr,
+    #noborder td {
+        border: 0px solid #ddd;
+        padding: 4px;
+     
+    }
+
+    #results tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #results tr:hover {
+        background-color: #ddd;
+    }
+
+    #results th {
+        padding-top: 6px;
+        padding-bottom: 6px;
+        text-align: left;
+        background-color: #3c4252;
+        color: white;
+    }
+
+    .notbold {
+        font-weight: normal;
+    }
+
+    .dateinfo {
+        text-align: center;
+        margin-bottom: 20px;
+
+    }
+
+    .upper {
+        text-transform: uppercase;
+    }
+
+    .totals {
+        float: right;
+        width: 100%;
+        margin-bottom: 5px;
+        margin-top: 10px;
+        text-align: right;
+        margin-right: 10px;
+    }
+
+    .summary {
+        width: 27% !important;
+        float: right;
+        margin-top: 22px;
+    }
+
+    h6 {
+        width: 100%;
+    }
+    .amounts{text-align: right !important;font-size: 12px; width: 12%;}
+    .tickets{width: 10%; text-align: center;font-size: 12px;}
+</style>
+<div style="width: 96%; margin: auto; padding: 10px;">
+    <h1>
+        Event {{period}} Statement
+    </h1>
+    <h2><span class="notbold">Venue Name:</span><b>{{venue_name}}</b></h4>
+        <div class="dateInfo">
+            {{filtered_week}} WEEK{{plural}} OF <span class="upper">{{event_month_name}}</span> {{event_year}}
+        </div>
+        <div>
+
+            <table id="results">
+
+                <tr>
+                    <th>Name</th>
+                    <th>Day & Week</th>
+                    <th style="text-align: center;">Paid/Tipped Tickets</th>
+                    <th style="text-align: right !important;">Gross Amount</th>
+                    <th style="text-align: right !important;">Fee</th>
+                    <th style="text-align: right !important;">Deposit Amount</th>
+                </tr>
+                {{#data}}
+                <tr>
+                    <td style="font-size: 12px;">{{event_name}}</td>
+                    <td style="font-size: 12px;">{{event_date_name}}</td>
+                    <td class="tickets">{{online_paid_tickets}}</td>
+                    <td class="amounts"   >{{gross_amount}}</td>
+                    <td class="amounts">{{service_fee}}</td>
+                    <td  class="amounts">{{net_amount}}</td>
+                </tr>
+                {{/data}}
+
+            </table>
+
+            <table id="results" class="summary">
+
+                <tr>
+                    <th colspan="2" style="text-align: center;">Totals</th>
+
+                </tr>
+
+                <tr>
+                    <td style="text-align: right !important;">Gross Amount:</td>
+                    <td style="text-align: right !important;">{{total_gross_amount}}</td>
+                </tr>
+                <tr>
+                    <td style="text-align: right !important;background-color: #f2f2f2;">Fee:</td>
+                    <td style="text-align: right !important;background-color: #f2f2f2;">{{total_service_fee}}</td>
+                </tr>
+                <tr>
+                    <td style="text-align: right !important;  background-color: #ffffff;">Deposit Amount:</td>
+                    <td style="text-align: right !important;  background-color: #ffffff;">{{total_net_amount}}</td>
+                </tr>
+            </table>
+
+            <br>
+            <br>
+            <br>
+
+            <br>
+            <br>
+            <br><br>
+            <br>
+            <br><br>
+            <br>
+            <br><br>
+            <br>
+            <br>
+            <div style="text-align:center">
+                <h6 style="font-weight: 700; color: gray; margin-top: 70px;">{{ bottomLabelHeader }}</h6>
+                <h6 style="color: blue; margin-top: -25px   ; font-size: 10px;"><a
+                        href="bottomLabelText">{{ bottomLabelText }}</a></h6>
+            </div>
+        </div>
