@@ -15,7 +15,7 @@ app.get('/', function(req, res) {
 app.use('/node_modules/', express.static(__dirname + '/node_modules/'));
 app.use('/templates/', express.static(__dirname + '/templates/'));
 app.use('/scripts/', express.static(__dirname + '/scripts/'));
-
+app.use('/',express.static(__dirname));
 app.listen(PORT);
 console.log('SERVER Stared at port:8000, running ......');
 

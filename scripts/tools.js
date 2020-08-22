@@ -95,6 +95,6 @@ async function renderTemplate(template, data) {
 }
 async function saveAsPDF(hmtl) {
     html2pdf()
-    .from(eventWeeklyStament)
+    .from(hmtl)
     .save();
 }
