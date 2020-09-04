@@ -14,7 +14,7 @@
         let eventWeeklyStament = '';
         async function loadInfo() {
 
-            eventWeeklyStament = await showInfo('./templates/eventWeeklyStament.html', 'https://4ak5dp12gh.execute-api.us-east-1.amazonaws.com/dev/event/co.CcfzgluQSX?event_year=2020&event_month=7')
+            eventWeeklyStament = await showInfo('./templates/eventWeeklyStament.html', '')
             $("#info").html(eventWeeklyStament);
         }
         async function saveAs() {
